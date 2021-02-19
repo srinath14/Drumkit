@@ -5,12 +5,14 @@ for(var i=0 ; i < numberOftimes ; i++){
 }
 document.addEventListener("keypress",handlekeys);
 function handlekeys(a){
-  makesound(a.key)
+  makesound(a.key);
+   buttonAnimation(a.key);
 }
 
 function handlingevent(){
   var buttonInnerHtml=this.innerHTML;
  makesound(buttonInnerHtml);
+   buttonAnimation(buttonInnerHtml);
 }
 
 function makesound(key){
@@ -47,3 +49,10 @@ function makesound(key){
  console.log(key);
  }
 }
+function buttonAnimation(key){
+  console.log(key);
+  var animation=document.querySelector("."+key);
+  animation.classList.add("pressed");
+  setTimeout(function(){
+    animation.classList.remove("pressed");
+  },100);
